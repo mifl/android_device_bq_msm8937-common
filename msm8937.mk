@@ -222,6 +222,7 @@ PRODUCT_PACKAGES += \
     libcnefeatureconfig \
     libjson \
     librmnetctl \
+    libprotobuf-cpp-full \
     libxml2
 
 # Snap
