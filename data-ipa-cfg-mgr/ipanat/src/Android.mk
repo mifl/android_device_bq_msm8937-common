@@ -13,6 +13,5 @@ LOCAL_SRC_FILES := ipa_nat_drv.c \
 LOCAL_CFLAGS := -DDEBUG
 LOCAL_MODULE := libipanat
 LOCAL_MODULE_TAGS := optional
-LOCAL_PRELINK_MODULE := false
 
 include $(BUILD_SHARED_LIBRARY)
