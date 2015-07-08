@@ -137,7 +137,8 @@ PRODUCT_PACKAGES += \
     init.msm.usb.configfs.rc \
     init.qcom.usb.sh \
     init.target.rc \
-    ueventd.qcom.rc
+    ueventd.qcom.rc \
+    init.qcom.sensors.sh
 
 # Init bq
 PRODUCT_PACKAGES += \
