@@ -209,6 +209,7 @@ PRODUCT_PACKAGES += \
 # RIL
 PRODUCT_PACKAGES += \
     libcnefeatureconfig \
+    libjson \
     librmnetctl \
     libxml2
 
