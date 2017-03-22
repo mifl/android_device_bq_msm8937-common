@@ -49,9 +49,8 @@ etc/acdbdata/QRD/QRD_Headset_cal.acdb
 etc/acdbdata/QRD/QRD_Speaker_cal.acdb
 
 # Bluetooth
-bin/btnvtool
 bin/hci_qcomm_init
-bin/wcnss_filter
+vendor/bin/wcnss_filter
 vendor/lib/libbtnv.so
 
 # BQ

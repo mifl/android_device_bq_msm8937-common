@@ -395,7 +395,6 @@ on property:persist.debug.trace=1
     write /proc/sys/kernel/core_pattern "/data/core/%E.%p.%e"
 
 on property:vold.decrypt=trigger_restart_framework
-    start config_bt_addr
     start wcnss-service
     start cnss_diag
 
@@ -437,17 +436,11 @@ on property:wc_transport.start_hci=true
 on property:wc_transport.start_hci=false
     stop start_hci_filter
 
-service start_hci_filter /system/bin/wcnss_filter
+service start_hci_filter /system/vendor/bin/wcnss_filter
     class late_start
     user bluetooth
     group bluetooth diag system wakelock
     disabled
-
-service config_bt_addr /system/bin/btnvtool -O
-    class core
-    user bluetooth
-    group bluetooth radio
-    oneshot
 
 service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
     class late_start
