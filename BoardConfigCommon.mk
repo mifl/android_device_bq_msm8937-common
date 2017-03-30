@@ -197,9 +197,6 @@ TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/recovery/recovery.fstab
 # RIL
 TARGET_RIL_VARIANT := caf
 
-# Seccomp policy
-BOARD_SECCOMP_POLICY := $(COMMON_PATH)/seccomp
-
 # Sensors
 USE_SENSOR_MULTI_HAL := true
 
