@@ -578,10 +578,6 @@ vendor/lib/libvqzip.so
 -app/fastdormancy/fastdormancy.apk
 -app/QtiTelephonyService/QtiTelephonyService.apk
 -app/shutdownlistener/shutdownlistener.apk
-bin/ims_rtp_daemon
-bin/imscmservice
-bin/imsqmidaemon
-bin/imsdatadaemon
 etc/permissions/embms.xml
 #etc/permissions/qcnvitems.xml
 etc/permissions/qcrilhook.xml
@@ -593,6 +589,10 @@ framework/qti-telephony-common.jar
 framework/QtiTelephonyServicelibrary.jar
 -priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 vendor/bin/diag_mdlog
+vendor/bin/ims_rtp_daemon
+vendor/bin/imscmservice
+vendor/bin/imsqmidaemon
+vendor/bin/imsdatadaemon
 vendor/bin/ipacm-diag
 vendor/bin/netmgrd
 vendor/bin/qti
