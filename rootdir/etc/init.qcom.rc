@@ -475,7 +475,7 @@ service qti /system/vendor/bin/qti
     user radio
     group radio net_raw diag usb net_admin
 
-service sensors /system/bin/sensors.qcom
+service sensors /vendor/bin/sensors.qcom
     class core
     user root
     group root
