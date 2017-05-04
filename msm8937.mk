@@ -232,6 +232,9 @@ PRODUCT_PACKAGES += \
     libOmxVenc \
     libstagefrighthw
 
+PRODUCT_PACKAGES += \
+    android.hardware.media.omx@1.0-impl
+
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power@1.0-service \
