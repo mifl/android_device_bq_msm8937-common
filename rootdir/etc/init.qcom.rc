@@ -416,6 +416,11 @@ service dpmd /system/vendor/bin/dpmd
     socket dpmd stream 660 root system
     group system readproc
 
+service dpmQmiMgr /system/vendor/bin/dpmQmiMgr
+    class main
+    user system
+    group system
+
 service irsc_util /vendor/bin/irsc_util "/vendor/etc/sec_config"
     class core
     user root

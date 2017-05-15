@@ -359,6 +359,7 @@ vendor/lib/libdpmfdmgr.so
 vendor/lib/libdpmframework.so
 vendor/lib/libdpmnsrm.so
 vendor/lib/libdpmtcm.so
+vendor/bin/dpmQmiMgr
 
 # DRM
 vendor/bin/qseecomd
