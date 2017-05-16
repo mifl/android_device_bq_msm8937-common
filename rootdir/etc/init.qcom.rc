@@ -148,6 +148,9 @@ on boot
 
     chown system system /sys/class/backlight/panel0-backlight/brightness
 
+    # Create directory used for display
+    mkdir /persist/display 0770 system graphics
+
 # msm specific files that need to be created on /data
 on post-fs-data
     mkdir /data/vendor 0770 system system
