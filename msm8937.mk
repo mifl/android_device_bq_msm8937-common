@@ -300,7 +300,9 @@ PRODUCT_PACKAGES += \
     hostapd_cli \
     wpa_supplicant \
     wpa_supplicant.conf \
-    wcnss_service
+    wcnss_service \
+    wificond \
+    wifilogd
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/hostapd_default.conf:system/etc/hostapd/hostapd_default.conf \
