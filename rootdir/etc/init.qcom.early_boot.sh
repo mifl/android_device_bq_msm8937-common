@@ -109,10 +109,10 @@ function set_perms() {
 }
 
 # check for mdp caps
-setprop debug.gralloc.gfx_ubwc_disable 1
 file=/sys/class/graphics/fb0/mdp/caps
 if [ -f "$file" ]
 then
+    setprop debug.gralloc.gfx_ubwc_disable 1
     cat $file | while read line; do
       case "$line" in
                 *"ubwc"*)
