@@ -28,6 +28,16 @@
 
 target=`getprop ro.board.platform`
 
+function configure_zram_parameters() {
+    # Zram disk - 512MB size
+    zram_enable=`getprop ro.vendor.qti.config.zram`
+    if [ "$zram_enable" == "true" ]; then
+        echo 536870912 > /sys/block/zram0/disksize
+        mkswap /dev/block/zram0
+        swapon /dev/block/zram0 -p 32758
+    fi
+}
+
 function configure_memory_parameters() {
     # Set Memory paremeters.
     #
@@ -50,6 +60,16 @@ function configure_memory_parameters() {
     # evicting compressed pages. This should be slighlty above adj0 value.
     # clear_percent = (adj0 * 100 / avalible memory in pages)+1
     #
+
+ProductName=`getprop ro.product.name`
+
+if [ "$ProductName" == "msm8996" ]; then
+      # Enable Adaptive LMK
+      echo 1 > /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk
+      echo 81250 > /sys/module/lowmemorykiller/parameters/vmpressure_file_min
+
+      configure_zram_parameters
+else
     arch_type=`uname -m`
     MemTotalStr=`cat /proc/meminfo | grep MemTotal`
     MemTotal=${MemTotalStr:16:8}
@@ -67,6 +87,8 @@ function configure_memory_parameters() {
     set_almk_ppr_adj=$(((set_almk_ppr_adj * 6) + 6))
     echo $set_almk_ppr_adj > /sys/module/lowmemorykiller/parameters/adj_max_shift
     echo $set_almk_ppr_adj > /sys/module/process_reclaim/parameters/min_score_adj
+
+    #Set other memory parameters
     echo 1 > /sys/module/process_reclaim/parameters/enable_process_reclaim
     echo 70 > /sys/module/process_reclaim/parameters/pressure_max
     echo 30 > /sys/module/process_reclaim/parameters/swap_opt_eff
@@ -100,16 +122,10 @@ function configure_memory_parameters() {
     echo $clearPercent > /sys/module/zcache/parameters/clear_percent
     echo 30 >  /sys/module/zcache/parameters/max_pool_percent
 
-    # Zram disk - 512MB size
-    zram_enable=`getprop ro.config.zram`
-    if [ "$zram_enable" == "true" ]; then
-        echo 792723456 > /sys/block/zram0/disksize
-        mkswap /dev/block/zram0
-        swapon /dev/block/zram0 -p 32758
-    fi
+    configure_zram_parameters
 
     SWAP_ENABLE_THRESHOLD=1048576
-    swap_enable=`getprop ro.config.swap`
+    swap_enable=`getprop ro.vendor.qti.config.swap`
 
     if [ -f /sys/devices/soc0/soc_id ]; then
         soc_id=`cat /sys/devices/soc0/soc_id`
@@ -130,6 +146,7 @@ function configure_memory_parameters() {
         mkswap /data/system/swap/swapfile
         swapon /data/system/swap/swapfile -p 32758
     fi
+fi
 }
 
 case "$target" in
