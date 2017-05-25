@@ -181,8 +181,8 @@ on post-fs-data
     mkdir /data/misc/wifi/wpa_supplicant 0770 wifi wifi
 
     #create netmgr log dir
-    mkdir /data/vendor/misc/netmgr 0770 radio radio
-    chmod 0770 /data/vendor/misc/netmgr
+    mkdir /data/vendor/netmgr 0770 radio radio
+    chmod 0770 /data/vendor/netmgr
 
     # Create the directories used by CnE subsystem
     mkdir /data/connectivity 0771 system system
