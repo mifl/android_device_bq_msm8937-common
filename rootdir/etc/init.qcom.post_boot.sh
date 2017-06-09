@@ -134,6 +134,15 @@ else
 fi
 }
 
+function start_hbtp()
+{
+        # Start the Host based Touch processing but not in the power off mode.
+        bootmode=`getprop ro.bootmode`
+        if [ "charger" != $bootmode ]; then
+                start hbtp
+        fi
+}
+
 case "$target" in
     "msm8953")
 
@@ -159,7 +168,7 @@ case "$target" in
                         #1200p panel is connected to the device.
                         dir="/sys/bus/i2c/devices/3-0038"
                         if [ ! -d "$dir" ]; then
-                              start hbtp
+                              start_hbtp
                         fi
                         ;;
                 esac
@@ -371,7 +380,7 @@ case "$target" in
                   # Start Host based Touch processing
                   case "$hw_platform" in
                     "MTP" | "Surf" | "RCM" )
-                        start hbtp
+                        start_hbtp
                         ;;
                   esac
                 # Apply Scheduler and Governor settings for 8917 / 8920
@@ -484,7 +493,7 @@ case "$target" in
                 # Start Host based Touch processing
                 case "$hw_platform" in
                   "MTP" | "Surf" | "RCM" )
-                      start hbtp
+                      start_hbtp
                       ;;
                 esac
 
