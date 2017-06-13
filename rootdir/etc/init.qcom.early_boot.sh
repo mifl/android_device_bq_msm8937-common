@@ -92,6 +92,7 @@ case "$target" in
         esac
         ;;
 esac
+
 #set default lcd density
 #Since lcd density has read only
 #property, it will not overwrite previous set
@@ -121,68 +122,75 @@ function setHDMIPermission() {
    set_perms $file/video_mode system.graphics 0664
    set_perms $file/format_3d system.graphics 0664
    set_perms $file/s3d_mode system.graphics 0664
+   set_perms $file/dynamic_fps system.graphics 0664
+   set_perms $file/msm_fb_dfps_mode system.graphics 0664
+   set_perms $file/hdr_stream system.graphics 0664
    set_perms $file/cec/enable system.graphics 0664
    set_perms $file/cec/logical_addr system.graphics 0664
    set_perms $file/cec/rd_msg system.graphics 0664
    set_perms $file/pa system.graphics 0664
    set_perms $file/cec/wr_msg system.graphics 0600
    set_perms $file/hdcp/tp system.graphics 0664
+   set_perms $file/hdmi_audio_cb audioserver.audio 0600
    ln -s $dev_file $dev_gfx_hdmi
 }
 
-# check for HDMI connection
-for fb_cnt in 0 1 2
-do
-    file=/sys/class/graphics/fb$fb_cnt/msm_fb_panel_info
+# check for the type of driver FB or DRM
+fb_driver=/sys/class/graphics/fb0
+if [ -e "$fb_driver" ]
+then
+    # check for HDMI connection
+    for fb_cnt in 0 1 2 3
+    do
+        file=/sys/class/graphics/fb$fb_cnt/msm_fb_panel_info
+        if [ -f "$file" ]
+        then
+          cat $file | while read line; do
+            case "$line" in
+                *"is_pluggable"*)
+                 case "$line" in
+                      *"1"*)
+                      setHDMIPermission $fb_cnt
+                 esac
+            esac
+          done
+        fi
+    done
+
+    # check for mdp caps
+    file=/sys/class/graphics/fb0/mdp/caps
     if [ -f "$file" ]
     then
-      cat $file | while read line; do
-        case "$line" in
-            *"is_pluggable"*)
-             case "$line" in
-                  *"1"*)
-                  setHDMIPermission $fb_cnt
-             esac
-        esac
-      done
+        setprop debug.gralloc.gfx_ubwc_disable 1
+        cat $file | while read line; do
+          case "$line" in
+                    *"ubwc"*)
+                    setprop debug.gralloc.enable_fb_ubwc 1
+                    setprop debug.gralloc.gfx_ubwc_disable 0
+                esac
+        done
     fi
-done
 
+    file=/sys/class/graphics/fb0
+    if [ -d "$file" ]
+    then
+            set_perms $file/idle_time system.graphics 0664
+            set_perms $file/dynamic_fps system.graphics 0664
+            set_perms $file/dyn_pu system.graphics 0664
+            set_perms $file/modes system.graphics 0664
+            set_perms $file/mode system.graphics 0664
+            set_perms $file/msm_cmd_autorefresh_en system.graphics 0664
+    fi
 
-
-# check for mdp caps
-file=/sys/class/graphics/fb0/mdp/caps
-if [ -f "$file" ]
-then
-    setprop debug.gralloc.gfx_ubwc_disable 1
-    cat $file | while read line; do
-      case "$line" in
-                *"ubwc"*)
-                setprop debug.gralloc.enable_fb_ubwc 1
-                setprop debug.gralloc.gfx_ubwc_disable 0
-            esac
+    # set lineptr permissions for all displays
+    for fb_cnt in 0 1 2 3
+    do
+        file=/sys/class/graphics/fb$fb_cnt/lineptr_value
+        if [ -f "$file" ]; then
+            set_perms $file system.graphics 0664
+        fi
     done
 fi
-
-file=/sys/class/graphics/fb0
-if [ -d "$file" ]
-then
-        set_perms $file/idle_time system.graphics 0664
-        set_perms $file/dynamic_fps system.graphics 0664
-        set_perms $file/dyn_pu system.graphics 0664
-        set_perms $file/modes system.graphics 0664
-        set_perms $file/mode system.graphics 0664
-        set_perms $file/msm_cmd_autorefresh_en system.graphics 0664
-fi
-
-# set lineptr permissions for all displays
-for fb_cnt in 0 1 2 3
-do
-    file=/sys/class/graphics/fb$fb_cnt/lineptr_value
-    if [ -f "$file" ]; then
-        set_perms $file system.graphics 0664
-    fi
-done
 
 boot_reason=`cat /proc/sys/kernel/boot_reason`
 reboot_reason=`getprop ro.boot.alarmboot`
