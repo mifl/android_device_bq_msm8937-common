@@ -76,11 +76,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.multisim.config=dsds \
-    persist.radio.proc_nw_scan=1 \
-    persist.radio.apm_sim_not_pwdn=1 \
-    persist.radio.custom_ecc=1 \
-    persist.radio.sib16_support=1 \
-    persist.radio.rat_on=disable
+    persist.vendor.radio.proc_nw_scan=1 \
+    persist.vendor.radio.apm_sim_not_pwdn=1 \
+    persist.vendor.radio.custom_ecc=1 \
+    persist.vendor.radio.sib16_support=1 \
+    persist.vendor.radio.rat_on=disable
 
 # RIL
 PRODUCT_PROPERTY_OVERRIDES += \
