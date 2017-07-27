@@ -82,6 +82,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.sib16_support=1 \
     persist.radio.rat_on=disable
 
+# RIL
+PRODUCT_PROPERTY_OVERRIDES += \
+    rild.libpath=/system/vendor/lib/libril-qc-qmi-1.so
+
 # Telephony
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.call_ring.multiple=false
