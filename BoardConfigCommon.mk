@@ -219,7 +219,7 @@ TARGET_TAP_TO_WAKE_NODE := "/sys/android_touch/wakeup_gesture_enable"
 
 # Vendor manifest file
 PRODUCT_COPY_FILES += \
-    $(COMMON_PATH)/vintf.xml:$(TARGET_COPY_OUT_VENDOR)/manifest.xml
+    $(COMMON_PATH)/manifest.xml:$(TARGET_COPY_OUT_VENDOR)/manifest.xml
 
 # Wifi
 BOARD_HAS_QCOM_WLAN              := true
