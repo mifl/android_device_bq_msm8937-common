@@ -316,6 +316,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_BOOT_JARS += \
     telephony-ext
 
+# USB
+PRODUCT_PACKAGES += \
+    android.hardware.usb@1.0-service
+
 # Vulkan
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.vulkan.level-0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.level-0.xml \
