@@ -672,4 +672,4 @@ etc/firmware/ice40.bin
 # Wi-Fi
 bin/cnss_diag
 bin/ptt_socket_app
-bin/wcnss_service
+vendor/bin/wcnss_service
