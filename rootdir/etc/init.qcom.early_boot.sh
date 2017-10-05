@@ -97,6 +97,26 @@ then
     done
 fi
 
+file=/sys/class/graphics/fb0
+if [ -d "$file" ]
+then
+        set_perms $file/idle_time system.graphics 0664
+        set_perms $file/dynamic_fps system.graphics 0664
+        set_perms $file/dyn_pu system.graphics 0664
+        set_perms $file/modes system.graphics 0664
+        set_perms $file/mode system.graphics 0664
+        set_perms $file/msm_cmd_autorefresh_en system.graphics 0664
+fi
+
+# set lineptr permissions for all displays
+for fb_cnt in 0 1 2 3
+do
+    file=/sys/class/graphics/fb$fb_cnt/lineptr_value
+    if [ -f "$file" ]; then
+        set_perms $file system.graphics 0664
+    fi
+done
+
 boot_reason=`cat /proc/sys/kernel/boot_reason`
 reboot_reason=`getprop ro.boot.alarmboot`
 power_off_alarm_file=`cat /persist/alarm/powerOffAlarmSet`
