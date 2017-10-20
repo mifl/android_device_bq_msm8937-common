@@ -112,6 +112,10 @@ PRODUCT_PACKAGES += \
 
 # Camera
 PRODUCT_PACKAGES += \
+    libcamera_parameters_shim \
+    Snap
+
+PRODUCT_PACKAGES += \
     camera.device@3.2-impl \
     camera.device@1.0-impl \
     android.hardware.camera.provider@2.4-impl \
@@ -322,10 +326,6 @@ PRODUCT_PACKAGES += \
     librmnetctl \
     libprotobuf-cpp-full \
     libxml2
-
-# Snap
-PRODUCT_PACKAGES += \
-    Snap
 
 # Seccomp
 PRODUCT_COPY_FILES += \

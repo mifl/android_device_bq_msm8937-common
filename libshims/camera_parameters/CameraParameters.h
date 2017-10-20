@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2016 The CyanogenMod Project
+ * Copyright (C) 2018 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,14 +15,14 @@
  * limitations under the License.
  */
 
-#define CAMERA_PARAMETERS_EXTRA_C \
-const char CameraParameters::KEY_NIGHTSHOT_ENABLE[] = "nightshot-enable"; \
-const char CameraParameters::KEY_NIGHTSHOT_ISENABLED[] = "nightshot-isenabled"; \
-const char CameraParameters::KEY_NIGHTHAWK_ENABLE[] = "nighthawk-enable"; \
-\
+namespace android {
 
-#define CAMERA_PARAMETERS_EXTRA_H \
-static const char KEY_NIGHTSHOT_ENABLE[]; \
-static const char KEY_NIGHTSHOT_ISENABLED[]; \
-static const char KEY_NIGHTHAWK_ENABLE[]; \
-\
+class CameraParameters
+{
+public:
+    static const char KEY_NIGHTSHOT_ENABLE[];
+    static const char KEY_NIGHTSHOT_ISENABLED[];
+    static const char KEY_NIGHTHAWK_ENABLE[];
+};
+
+};
