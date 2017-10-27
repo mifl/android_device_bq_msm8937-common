@@ -67,7 +67,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     vidc.debug.perf.mode=2 \
     vidc.enc.dcvs.extra-buff-count=2 \
-    vidc.enc.disable.pq=true
+    vidc.enc.disable.pq=true \
+    vendor.vidc.disable.split.mode=1
 
 # Perf
 PRODUCT_PROPERTY_OVERRIDES += \
