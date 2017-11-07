@@ -215,8 +215,8 @@ BOARD_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy
 TARGET_TAP_TO_WAKE_NODE := "/sys/android_touch/wakeup_gesture_enable"
 
 # Vendor manifest file
-PRODUCT_COPY_FILES += \
-    $(COMMON_PATH)/manifest.xml:$(TARGET_COPY_OUT_VENDOR)/manifest.xml
+DEVICE_MANIFEST_FILE := $(COMMON_PATH)/manifest.xml
+DEVICE_MATRIX_FILE   := $(COMMON_PATH)/compatibility_matrix.xml
 
 # Wifi
 BOARD_HAS_QCOM_WLAN              := true
