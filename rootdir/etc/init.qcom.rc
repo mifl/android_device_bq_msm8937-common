@@ -615,6 +615,10 @@ on charger
     load_system_props
     start qcom-post-boot
 
+on property:init.svc.surfaceflinger=restarting
+    stop hwcomposer-2-1
+    start hwcomposer-2-1
+
 service time_daemon /system/vendor/bin/time_daemon
     class main
     user root
