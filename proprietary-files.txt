@@ -295,15 +295,15 @@ vendor/lib/libchromatix_s5k3p3sm_preview.so
 vendor/lib/libchromatix_s5k3p3sm_snapshot.so
 
 # Camera firmware
-etc/firmware/cpp_firmware_v1_1_1.fw
-etc/firmware/cpp_firmware_v1_1_6.fw
-etc/firmware/cpp_firmware_v1_10_0.fw
-etc/firmware/cpp_firmware_v1_2_0.fw
-etc/firmware/cpp_firmware_v1_4_0.fw
-etc/firmware/cpp_firmware_v1_5_0.fw
-etc/firmware/cpp_firmware_v1_5_2.fw
-etc/firmware/cpp_firmware_v1_6_0.fw
-etc/firmware/cpp_firmware_v1_8_0.fw
+vendor/firmware/cpp_firmware_v1_1_1.fw
+vendor/firmware/cpp_firmware_v1_1_6.fw
+vendor/firmware/cpp_firmware_v1_10_0.fw
+vendor/firmware/cpp_firmware_v1_2_0.fw
+vendor/firmware/cpp_firmware_v1_4_0.fw
+vendor/firmware/cpp_firmware_v1_5_0.fw
+vendor/firmware/cpp_firmware_v1_5_2.fw
+vendor/firmware/cpp_firmware_v1_6_0.fw
+vendor/firmware/cpp_firmware_v1_8_0.fw
 
 # Camera sensors
 vendor/lib/libmmcamera_isp_wb40.so
@@ -474,14 +474,14 @@ vendor/lib/libsdm-diag.so
 vendor/lib/libsdmextension.so
 
 # Graphics firmware
-etc/firmware/a530_gpmu.fw2
-etc/firmware/a530_pfp.fw
-etc/firmware/a530_pm4.fw
-etc/firmware/a530v1_pfp.fw
-etc/firmware/a530v1_pm4.fw
-etc/firmware/a530v2_seq.fw2
-etc/firmware/a530v3_gpmu.fw2
-etc/firmware/a530v3_seq.fw2
+vendor/firmware/a530_gpmu.fw2
+vendor/firmware/a530_pfp.fw
+vendor/firmware/a530_pm4.fw
+vendor/firmware/a530v1_pfp.fw
+vendor/firmware/a530v1_pm4.fw
+vendor/firmware/a530v2_seq.fw2
+vendor/firmware/a530v3_gpmu.fw2
+vendor/firmware/a530v3_seq.fw2
 
 # Keystore
 vendor/lib/hw/keystore.msm8937.so
