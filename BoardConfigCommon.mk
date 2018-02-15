@@ -210,6 +210,9 @@ TARGET_RIL_VARIANT := caf
 include device/qcom/sepolicy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy
 
+# Shims
+TARGET_LD_SHIM_LIBS := /system/lib/libcamera_client.so|libcamera_parameters_shim.so
+
 # Tap to wake
 TARGET_TAP_TO_WAKE_NODE := "/sys/android_touch/wakeup_gesture_enable"
 
