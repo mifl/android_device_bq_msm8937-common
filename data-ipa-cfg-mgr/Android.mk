@@ -1,4 +1,4 @@
-ifeq ($(TARGET_DEVICE),tenshi)
+ifneq ($(filter tenshi,$(TARGET_DEVICE)),)
 
 include $(call all-subdir-makefiles)
 
