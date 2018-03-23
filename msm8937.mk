@@ -1,5 +1,6 @@
 #
 # Copyright (C) 2016 The CyanogenMod Project
+# Copyright (C) 2018 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -247,9 +248,7 @@ PRODUCT_PACKAGES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    lights.msm8937 \
-    android.hardware.light@2.0-impl \
-    android.hardware.light@2.0-service \
+    android.hardware.light@2.0-service.aw2013 
 
 # Media
 PRODUCT_COPY_FILES += \
