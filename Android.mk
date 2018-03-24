@@ -206,7 +206,7 @@ $(WCNSS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 
 ALL_DEFAULT_INSTALLED_MODULES += $(WCNSS_SYMLINKS)
 
-WCNSS_BIN_SYMLINK := $(TARGET_OUT_ETC)/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
+WCNSS_BIN_SYMLINK := $(TARGET_OUT_VENDOR)/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
 $(WCNSS_BIN_SYMLINK): $(LOCAL_INSTALLED_MODULE)
 	@echo "WCNSS nv bin link: $@"
 	@mkdir -p $(dir $@)
@@ -215,7 +215,7 @@ $(WCNSS_BIN_SYMLINK): $(LOCAL_INSTALLED_MODULE)
 
 ALL_DEFAULT_INSTALLED_MODULES += $(WCNSS_BIN_SYMLINK)
 
-WCNSS_DAT_SYMLINK := $(TARGET_OUT_ETC)/firmware/wlan/prima/WCNSS_wlan_dictionary.dat
+WCNSS_DAT_SYMLINK := $(TARGET_OUT_VENDOR)/firmware/wlan/prima/WCNSS_wlan_dictionary.dat
 $(WCNSS_DAT_SYMLINK): $(LOCAL_INSTALLED_MODULE)
 	@echo "WCNSS dictionary dat link: $@"
 	@mkdir -p $(dir $@)
@@ -224,7 +224,7 @@ $(WCNSS_DAT_SYMLINK): $(LOCAL_INSTALLED_MODULE)
 
 ALL_DEFAULT_INSTALLED_MODULES += $(WCNSS_DAT_SYMLINK)
 
-WCNSS_INI_SYMLINK := $(TARGET_OUT_ETC)/firmware/wlan/prima/WCNSS_qcom_cfg.ini
+WCNSS_INI_SYMLINK := $(TARGET_OUT_VENDOR)/firmware/wlan/prima/WCNSS_qcom_cfg.ini
 $(WCNSS_INI_SYMLINK): $(LOCAL_INSTALLED_MODULE)
 	@echo "WCNSS cfg ini link: $@"
 	@mkdir -p $(dir $@)
