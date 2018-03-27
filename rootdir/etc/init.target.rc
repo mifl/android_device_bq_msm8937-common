@@ -32,6 +32,7 @@ import init.bq.common.rc
 on early-init
     mkdir /firmware 0771 system system
     mkdir /system 0777 root root
+    mkdir /bt_firmware 0771 system system
     symlink /data/tombstones /tombstones
     mkdir /dsp 0771 media media
 
