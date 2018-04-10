@@ -520,6 +520,7 @@ service cnss_diag /system/vendor/bin/cnss_diag -q -f
     user system
     group system wifi inet net_admin sdcard_rw media_rw diag
     oneshot
+    capabilities NET_ADMIN
 
 service loc_launcher /system/vendor/bin/loc_launcher
     #loc_launcher will start as root and set its uid to gps
