@@ -165,7 +165,10 @@ PRODUCT_PACKAGES += \
 
 # GPS
 PRODUCT_PACKAGES += \
-    gps.msm8937
+    android.hardware.gnss@1.0-impl-qti \
+    android.hardware.gnss@1.0-service-qti \
+    libgnss \
+    libcurl
 
 PRODUCT_PACKAGES += \
     flp.conf \
@@ -241,10 +244,6 @@ PRODUCT_PACKAGES += \
     lights.msm8937 \
     android.hardware.light@2.0-impl \
     android.hardware.light@2.0-service \
-
-# Misc
-PRODUCT_PACKAGES += \
-    libcurl
 
 # Media
 PRODUCT_COPY_FILES += \
