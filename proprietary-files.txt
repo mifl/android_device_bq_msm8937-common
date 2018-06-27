@@ -400,7 +400,6 @@ framework/com.qti.location.sdk.jar
 framework/izat.xt.srv.jar
 lib/libloc_api_v02.so
 lib/libloc_ds_api.so
-lib/libgnsspps.so
 -priv-app/com.qualcomm.location/com.qualcomm.location.apk
 vendor/bin/loc_launcher
 vendor/bin/lowi-server
