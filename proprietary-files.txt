@@ -85,6 +85,8 @@ lib/libmm-qcamera.so
 lib/libqomx_core.so
 lib/libarcsoft_beautyshot.so
 lib/libcam.beautyshot.so
+lib/libimscamera_jni.so
+lib/libimsmedia_jni.so
 lib/libmpbase.so
 vendor/bin/mm-qcamera-app
 vendor/bin/mm-qcamera-daemon
