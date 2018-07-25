@@ -548,6 +548,15 @@ framework/com.qti.snapdragon.sdk.display.jar
 vendor/bin/mm-pp-dpps
 vendor/lib/libdisp-aba.so
 
+# Power-off alarm
+etc/permissions/vendor-qti-hardware-alarm.xml
+vendor/bin/hw/vendor.qti.hardware.alarm@1.0-service
+vendor/bin/power_off_alarm
+vendor/etc/init/vendor.qti.hardware.alarm@1.0-service.rc
+vendor/framework/vendor.qti.hardware.alarm-V1.0-java.jar
+vendor/lib/hw/vendor.qti.hardware.alarm@1.0-impl.so
+vendor/lib/vendor.qti.hardware.alarm@1.0.so
+
 # QMI
 etc/permissions/qti_permissions.xml
 vendor/bin/irsc_util
