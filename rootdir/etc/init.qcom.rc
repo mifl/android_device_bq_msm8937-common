@@ -646,5 +646,9 @@ service power_off_alarm /vendor/bin/power_off_alarm
     disabled
     oneshot
 
+#Set GPU Opengles version
+on property:vendor.opengles.version=*
+    setprop ro.opengles.version ${vendor.opengles.version}
+
 on property:dev.bootcomplete=1
     setprop sys.io.scheduler "bfq"
