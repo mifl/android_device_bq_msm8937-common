@@ -1,5 +1,7 @@
 /*
    Copyright (c) 2016, The CyanogenMod Project
+   Copyright (C) 2017-2018, The LineageOS Project
+
    Redistribution and use in source and binary forms, with or without
    modification, are permitted provided that the following conditions are
    met:
@@ -28,6 +30,8 @@
 #include <sys/sysinfo.h>
 
 #include "property_service.h"
+
+using android::init::property_set;
 
 char const *heapstartsize;
 char const *heapgrowthlimit;
