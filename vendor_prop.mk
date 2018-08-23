@@ -84,7 +84,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.radio.rat_on=disable \
     persist.radio.schd.cache=3500 \
     sys.vendor.shutdown.waittime=500 \
-    ro.build.shutdown_timeout=0
+    ro.build.shutdown_timeout=6
 
 # RIL
 PRODUCT_PROPERTY_OVERRIDES += \
