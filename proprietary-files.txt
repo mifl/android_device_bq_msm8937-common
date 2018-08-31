@@ -1,5 +1,5 @@
 # ADSP
-bin/adsprpcd
+vendor/bin/adsprpcd
 vendor/lib/libadsprpc.so
 vendor/lib/libadsp_default_listener.so
 vendor/lib/libfastcvadsp_stub.so
@@ -49,7 +49,7 @@ etc/acdbdata/QRD/QRD_Headset_cal.acdb
 etc/acdbdata/QRD/QRD_Speaker_cal.acdb
 
 # Bluetooth
-bin/hci_qcomm_init
+vendor/bin/hci_qcomm_init
 vendor/bin/wcnss_filter
 vendor/lib/libbtnv.so
 
@@ -60,7 +60,6 @@ etc/permissions/bq.software.qcom.m.xml
 etc/permissions/bq.software.qcom.n.xml
 
 # CNE
-bin/cnd
 etc/cne/SwimConfig.xml
 etc/cne/andsfCne.xml
 etc/permissions/ConnectivityExt.xml
@@ -70,6 +69,7 @@ framework/ConnectivityExt.jar
 framework/cneapiclient.jar
 framework/com.quicinc.cne.jar
 -priv-app/CNEService/CNEService.apk
+vendor/bin/cnd
 vendor/lib/libcne.so
 vendor/lib/libcneapiclient.so
 vendor/lib/libcneqmiutils.so
@@ -78,8 +78,6 @@ vendor/lib/libwqe.so
 vendor/lib/libxml.so
 
 # Camera
-bin/mm-qcamera-app
-bin/mm-qcamera-daemon
 lib/hw/camera.msm8937.so
 lib/libmmcamera_interface.so
 lib/libmmjpeg_interface.so
@@ -88,6 +86,8 @@ lib/libqomx_core.so
 lib/libarcsoft_beautyshot.so
 lib/libcam.beautyshot.so
 lib/libmpbase.so
+vendor/bin/mm-qcamera-app
+vendor/bin/mm-qcamera-daemon
 vendor/lib/libchromaflash.so
 vendor/lib/libflash_pmic.so
 vendor/lib/libjpegdhw.so
@@ -342,10 +342,9 @@ vendor/lib/libmmcamera_isp_color_xform_encoder40.so
 vendor/lib/libmmcamera_isp_color_xform_viewfinder40.so
 
 # Charger
-bin/hvdcp_opti
+vendor/bin/hvdcp_opti
 
 # DPM
-bin/dpmd
 etc/dpm/dpm.conf
 etc/dpm/nsrm/NsrmConfiguration.xml
 etc/permissions/com.qti.dpmframework.xml
@@ -354,6 +353,7 @@ framework/com.qti.dpmframework.jar
 framework/dpmapi.jar
 framework/tcmclient.jar
 -priv-app/dpmserviceapp/dpmserviceapp.apk
+vendor/bin/dpmd
 vendor/lib/libdpmctmgr.so
 vendor/lib/libdpmfdmgr.so
 vendor/lib/libdpmframework.so
@@ -361,7 +361,7 @@ vendor/lib/libdpmnsrm.so
 vendor/lib/libdpmtcm.so
 
 # DRM
-bin/qseecomd
+vendor/bin/qseecomd
 vendor/bin/mdtpd
 vendor/bin/qseeproxydaemon
 vendor/lib/libcppf.so
@@ -386,16 +386,12 @@ vendor/lib/libtzdrmgenprov.so
 vendor/lib/mediadrm/libwvdrmengine.so
 
 # FM
-bin/fm_qsoc_patches
+vendor/bin/fm_qsoc_patches
 
 # Gatekeeper
 vendor/lib/hw/gatekeeper.msm8937.so
 
 # GPS
-bin/loc_launcher
-bin/lowi-server
-bin/xtwifi-client
-bin/xtwifi-inet-agent
 etc/permissions/com.qti.location.sdk.xml
 etc/permissions/com.qualcomm.location.xml
 etc/permissions/izat.xt.srv.xml
@@ -405,7 +401,11 @@ lib/libloc_api_v02.so
 lib/libloc_ds_api.so
 lib/libgnsspps.so
 -priv-app/com.qualcomm.location/com.qualcomm.location.apk
+vendor/bin/loc_launcher
+vendor/bin/lowi-server
 vendor/bin/slim_daemon
+vendor/bin/xtwifi-client
+vendor/bin/xtwifi-inet-agent
 vendor/lib/hw/flp.default.so
 vendor/lib/libalarmservice_jni.so
 vendor/lib/libasn1cper.so
@@ -525,8 +525,8 @@ vendor/lib/libconnctrl.so
 vendor/lib/libQtiTether.so
 
 # Perf
-bin/iop
-bin/msm_irqbalance
+vendor/bin/iop
+vendor/bin/msm_irqbalance
 vendor/bin/perfd
 vendor/etc/perf-profile0.conf
 vendor/etc/perf-profile1.conf
@@ -536,8 +536,8 @@ vendor/lib/libqti-iop-client.so
 vendor/lib/libqti-perfd-client.so
 
 # Peripheral manager
-bin/pm-proxy
-bin/pm-service
+vendor/bin/pm-proxy
+vendor/bin/pm-service
 vendor/lib/libperipheral_client.so
 
 # Postprocessing
@@ -548,9 +548,9 @@ vendor/bin/mm-pp-dpps
 vendor/lib/libdisp-aba.so
 
 # QMI
-bin/ATFWD-daemon
-bin/irsc_util
 etc/permissions/qti_permissions.xml
+vendor/bin/irsc_util
+vendor/bin/ATFWD-daemon
 vendor/lib/libdiag.so
 vendor/lib/libdsi_netctrl.so
 vendor/lib/libdsutils.so
@@ -578,16 +578,10 @@ vendor/lib/libvqzip.so
 -app/fastdormancy/fastdormancy.apk
 -app/QtiTelephonyService/QtiTelephonyService.apk
 -app/shutdownlistener/shutdownlistener.apk
-bin/diag_mdlog
 bin/ims_rtp_daemon
 bin/imscmservice
 bin/imsqmidaemon
 bin/imsdatadaemon
-bin/ipacm-diag
-bin/netmgrd
-bin/radish
-bin/rmt_storage
-bin/tftp_server
 etc/permissions/embms.xml
 #etc/permissions/qcnvitems.xml
 etc/permissions/qcrilhook.xml
@@ -598,7 +592,13 @@ framework/embmslibrary.jar
 framework/qti-telephony-common.jar
 framework/QtiTelephonyServicelibrary.jar
 -priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
+vendor/bin/diag_mdlog
+vendor/bin/ipacm-diag
+vendor/bin/netmgrd
 vendor/bin/qti
+vendor/bin/radish
+vendor/bin/rmt_storage
+vendor/bin/tftp_server
 vendor/lib/libconfigdb.so
 vendor/lib/liblqe.so
 vendor/lib/libmdmdetect.so
@@ -638,9 +638,9 @@ vendor/lib/libscveTextReco.so
 vendor/lib/libscveTextReco_stub.so
 
 # Sensors
-bin/sensors.qcom
 lib/libsensor_calibrator.so
 lib/libsensor_user_calibrator.so
+vendor/bin/sensors.qcom
 vendor/lib/hw/activity_recognition.msm8937.so
 vendor/lib/libsensor1.so
 vendor/lib/libsensor_reg.so
@@ -648,9 +648,9 @@ vendor/lib/sensor_calibrate.so
 vendor/lib/sensors.ssc.so
 
 # Subsystem restart
-bin/ssr_diag
-bin/ssr_setup
-bin/subsystem_ramdump
+vendor/bin/ssr_diag
+vendor/bin/ssr_setup
+vendor/bin/subsystem_ramdump
 vendor/lib/libSubSystemShutdown.so
 vendor/lib/libsubsystem_control.so
 
@@ -662,7 +662,7 @@ vendor/lib/libthermalioctl.so
 
 # Time services
 -app/TimeService/TimeService.apk
-bin/time_daemon
+vendor/bin/time_daemon
 -vendor/lib/libtime_genoff.so
 vendor/lib/libTimeService.so
 
@@ -670,6 +670,6 @@ vendor/lib/libTimeService.so
 etc/firmware/ice40.bin
 
 # Wi-Fi
-bin/cnss_diag
-bin/ptt_socket_app
+vendor/bin/cnss_diag
+vendor/bin/ptt_socket_app
 vendor/bin/wcnss_service
