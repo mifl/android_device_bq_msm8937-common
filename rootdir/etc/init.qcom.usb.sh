@@ -30,19 +30,59 @@
 chown -h root.system /sys/devices/platform/msm_hsusb/gadget/wakeup
 chmod -h 220 /sys/devices/platform/msm_hsusb/gadget/wakeup
 
-usb_config=`getprop persist.sys.usb.config`
-diag_extra=`getprop persist.sys.usb.config.extra`
+target=`getprop ro.board.platform`
+
+# soc_ids for 8937
+if [ -f /sys/devices/soc0/soc_id ]; then
+	soc_id=`cat /sys/devices/soc0/soc_id`
+else
+	soc_id=`cat /sys/devices/system/soc/soc0/id`
+fi
 
 #
 # Allow USB enumeration with default PID/VID
 #
 echo 1  > /sys/class/android_usb/f_mass_storage/lun/nofua
+usb_config=`getprop persist.sys.usb.config`
+case "$usb_config" in
+	"" | "adb") #USB persist config not set, select default configuration
+		case "$target" in
+		    "msm8937")
+			case "$soc_id" in
+			    "313" | "320")
+					setprop persist.sys.usb.config diag,serial_smd,rmnet_ipa,adb
+				;;
+				*)
+					 setprop persist.sys.usb.config diag,serial_smd,rmnet_qti_bam,adb
+				;;
+			esac
+		;;
+		esac
+	* ) ;; #USB persist config exists, do nothing
+esac
 
-setprop persist.sys.usb.config diag,serial_smd,rmnet_qti_bam,adb
+# check configfs is mounted or not
+if [ -d /config/usb_gadget ]; then
+	setprop sys.usb.configfs 1
+fi
+
+#
+# Do target specific things
+#
+case "$target" in
+    "msm8937")
+	case "$soc_id" in
+		"313" | "320")
+		   echo BAM2BAM_IPA > /sys/class/android_usb/android0/f_rndis_qc/rndis_transports
+		;;
+	esac
+   ;;
+esac
 
 #
 # Initialize RNDIS Diag option. If unset, set it to 'none'.
 #
+diag_extra=`getprop persist.sys.usb.config.extra`
 if [ "$diag_extra" == "" ]; then
 	setprop persist.sys.usb.config.extra none
 fi
