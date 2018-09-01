@@ -131,6 +131,8 @@ PRODUCT_PACKAGES += \
     init.qcom.rc \
     init.qcom.sh \
     init.qcom.usb.rc \
+    init.target.rc \
+    init.bq.common.rc \
     ueventd.qcom.rc
 
 # IPA Manager
