@@ -138,7 +138,8 @@ PRODUCT_PACKAGES += \
 
 # Init bq
 PRODUCT_PACKAGES += \
-    init.bq.common.rc
+    init.bq.common.rc \
+    init.bq.usb.rc
 
 # IPA Manager
 PRODUCT_PACKAGES += \

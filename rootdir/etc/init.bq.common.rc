@@ -1,3 +1,4 @@
+import init.bq.usb.rc
 import init.bq.device.rc
 
 on boot
