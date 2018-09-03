@@ -127,6 +127,8 @@ PROTOBUF_SUPPORTED := false
 # Display
 TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
 TARGET_USES_C2D_COMPOSITION := true
+TARGET_USES_GRALLOC1 := true
+TARGET_USES_HWC2 := true
 TARGET_USES_ION := true
 
 # Shader cache config options
