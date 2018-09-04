@@ -246,6 +246,7 @@ PRODUCT_PACKAGES += \
     libwifi-hal-qcom \
     libwpa_client \
     hostapd \
+    hostapd_cli \
     wpa_supplicant \
     wpa_supplicant.conf \
     wcnss_service
