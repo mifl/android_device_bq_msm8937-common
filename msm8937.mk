@@ -172,6 +172,7 @@ PRODUCT_PACKAGES += \
     libcurl
 
 PRODUCT_PACKAGES += \
+    apdr.conf \
     flp.conf \
     gps.conf \
     izat.conf \
