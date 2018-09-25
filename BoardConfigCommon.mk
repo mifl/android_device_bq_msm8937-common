@@ -125,11 +125,6 @@ WITH_DEXPREOPT_BOOT_IMG_ONLY ?= true
 TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
 TARGET_USES_C2D_COMPOSITION := true
 TARGET_USES_ION := true
-TARGET_USES_OVERLAY := true
-USE_OPENGL_RENDERER := true
-
-VSYNC_EVENT_PHASE_OFFSET_NS := 1000000
-SF_VSYNC_EVENT_PHASE_OFFSET_NS := 1000000
 
 # Shader cache config options
 # Maximum size of the  GLES Shaders that can be cached for reuse.
