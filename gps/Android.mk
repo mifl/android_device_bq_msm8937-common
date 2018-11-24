@@ -16,6 +16,6 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifneq ($(filter tenshi chaozu,$(TARGET_DEVICE)),)
+ifneq ($(filter tenshi chaozu chaozulite,$(TARGET_DEVICE)),)
 include $(call all-subdir-makefiles,$(LOCAL_PATH))
 endif
