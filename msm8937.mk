@@ -211,6 +211,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     power.msm8937
 
+# Properties
+-include $(LOCAL_PATH)/vendor_prop.mk
+
 # Qualcomm dependencies
 PRODUCT_PACKAGES += \
     libtinyxml
