@@ -31,31 +31,6 @@ include $(call all-makefiles-under,$(LOCAL_PATH))
 
 include $(CLEAR_VARS)
 
-LOCAL_MODULE := wifi_symlinks
-LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_CLASS := FAKE
-LOCAL_MODULE_SUFFIX := -timestamp
-
-include $(BUILD_SYSTEM)/base_rules.mk
-
-$(LOCAL_BUILT_MODULE): ACTUAL_INI_FILE := /data/misc/wifi/WCNSS_qcom_cfg.ini
-$(LOCAL_BUILT_MODULE): WCNSS_INI_SYMLINK := $(TARGET_OUT)/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini
-
-$(LOCAL_BUILT_MODULE): ACTUAL_DAT_FILE := /persist/WCNSS_wlan_dictionary.dat
-$(LOCAL_BUILT_MODULE): WCNSS_DAT_SYMLINK := $(TARGET_OUT)/etc/firmware/wlan/prima/WCNSS_wlan_dictionary.dat
-
-$(LOCAL_BUILT_MODULE): $(LOCAL_PATH)/Android.mk
-$(LOCAL_BUILT_MODULE):
-	$(hide) echo "Making symlinks for wifi"
-	$(hide) mkdir -p $(dir $@)
-	$(hide) mkdir -p $(dir $(WCNSS_INI_SYMLINK))
-	$(hide) rm -rf $@
-	$(hide) rm -rf $(WCNSS_INI_SYMLINK)
-	$(hide) ln -sf $(ACTUAL_INI_FILE) $(WCNSS_INI_SYMLINK)
-	$(hide) rm -rf $(WCNSS_DAT_SYMLINK)
-	$(hide) ln -sf $(ACTUAL_DAT_FILE) $(WCNSS_DAT_SYMLINK)
-	$(hide) touch $@
-
 ADSP_IMAGES := \
     adsp.b00 adsp.b01 adsp.b02 adsp.b03 adsp.b04 adsp.b05 adsp.b06 adsp.b07 \
     adsp.b08 adsp.b09 adsp.b10 adsp.b11 adsp.b12 adsp.b13 adsp.b14 adsp.mdt
@@ -218,32 +193,45 @@ $(VENUS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 
 ALL_DEFAULT_INSTALLED_MODULES += $(VENUS_SYMLINKS)
 
-WCNSS_DIC_FIRMWARE := $(TARGET_OUT)/etc/firmware/wlan/prima/WCNSS_wlan_dictionary.dat
-$(WCNSS_DIC_FIRMWARE): $(LOCAL_INSTALLED_MODULE)
-	@echo "WCNSS DICTIONARY link: $@"
-	@mkdir -p $(dir $@)
-	@rm -rf $@
-	$(hide) ln -sf /persist/$(notdir $@) $@
-
-WCNSS_INI_SYMLINK := $(TARGET_OUT_ETC)/firmware/wlan/prima/WCNSS_qcom_cfg.ini
-$(WCNSS_INI_SYMLINK): $(LOCAL_INSTALLED_MODULE)
-		@echo "WCNSS config ini link: $@"
-		@mkdir -p $(dir $@)
-		@rm -rf $@
-		$(hide) ln -sf /data/misc/wifi/$(notdir $@) $@
-
 WCNSS_IMAGES := \
     wcnss.b00 wcnss.b01 wcnss.b02 wcnss.b04 wcnss.b06 \
     wcnss.b09 wcnss.b10 wcnss.b11 wcnss.b12 wcnss.mdt
 
-WCNSS_FW_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(WCNSS_IMAGES)))
-$(WCNSS_FW_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+WCNSS_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(WCNSS_IMAGES)))
+$(WCNSS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@echo "WCNSS firmware link: $@"
 	@mkdir -p $(dir $@)
 	@rm -rf $@
 	$(hide) ln -sf /firmware/image/$(notdir $@) $@
 
-ALL_DEFAULT_INSTALLED_MODULES += $(WCNSS_DIC_FIRMWARE) $(WCNSS_INI_FIRMWARE) $(WCNSS_FW_SYMLINKS)
+ALL_DEFAULT_INSTALLED_MODULES += $(WCNSS_SYMLINKS)
+
+WCNSS_BIN_SYMLINK := $(TARGET_OUT_ETC)/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
+$(WCNSS_BIN_SYMLINK): $(LOCAL_INSTALLED_MODULE)
+	@echo "WCNSS nv bin link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /persist/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(WCNSS_BIN_SYMLINK)
+
+WCNSS_DAT_SYMLINK := $(TARGET_OUT_ETC)/firmware/wlan/prima/WCNSS_wlan_dictionary.dat
+$(WCNSS_DAT_SYMLINK): $(LOCAL_INSTALLED_MODULE)
+	@echo "WCNSS dictionary dat link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /persist/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(WCNSS_DAT_SYMLINK)
+
+WCNSS_INI_SYMLINK := $(TARGET_OUT_ETC)/firmware/wlan/prima/WCNSS_qcom_cfg.ini
+$(WCNSS_INI_SYMLINK): $(LOCAL_INSTALLED_MODULE)
+	@echo "WCNSS cfg ini link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /data/misc/wifi/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(WCNSS_INI_SYMLINK)
 
 WV_IMAGES := \
     widevine.b00 widevine.b01 widevine.b02 widevine.b03 widevine.b04 widevine.b05 \
