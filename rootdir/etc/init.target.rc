@@ -51,7 +51,6 @@ on post-fs-data
     mkdir /tombstones/dsps 0771 system system
     mkdir /persist/data/sfs 0700 system system
     mkdir /persist/data/tz 0700 system system
-    mkdir /data/misc/hbtp 0750 system system
 
 #start camera server as daemon
 service qcamerasvr /system/bin/mm-qcamera-daemon
@@ -138,12 +137,6 @@ on charger
     start qcom-post-boot
     setprop persist.sys.usb.config mass_storage
     start hvdcp_opti
-
-service hbtp /system/vendor/bin/hbtp_daemon
-    class main
-    user system
-    group system
-    disabled
 
 service adsprpcd /system/bin/adsprpcd
     class main
