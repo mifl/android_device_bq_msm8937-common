@@ -637,6 +637,7 @@ bin/sensors.qcom
 vendor/lib/hw/activity_recognition.msm8937.so
 vendor/lib/libsensor1.so
 vendor/lib/libsensor_reg.so
+vendor/lib/libsensor_user_cal.so
 vendor/lib/sensor_calibrate.so
 vendor/lib/sensors.ssc.so
 
