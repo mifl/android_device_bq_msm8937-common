@@ -528,6 +528,8 @@ vendor/lib/libQtiTether.so
 bin/iop
 bin/msm_irqbalance
 vendor/bin/perfd
+vendor/etc/perf-profile0.conf
+vendor/etc/perf-profile1.conf
 vendor/lib/libqti_performance.so
 vendor/lib/libqti-iop.so
 vendor/lib/libqti-iop-client.so
