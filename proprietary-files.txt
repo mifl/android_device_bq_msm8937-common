@@ -645,6 +645,10 @@ vendor/lib/sensors.ssc.so
 
 # Subsystem restart
 bin/ssr_diag
+bin/ssr_setup
+bin/subsystem_ramdump
+vendor/lib/libSubSystemShutdown.so
+vendor/lib/libsubsystem_control.so
 
 # Thermal
 etc/thermal-engine.conf
