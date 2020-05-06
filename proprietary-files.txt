@@ -666,4 +666,6 @@ vendor/lib/libTimeService.so
 etc/firmware/ice40.bin
 
 # Wi-Fi
+bin/cnss_diag
+bin/ptt_socket_app
 bin/wcnss_service
