@@ -574,11 +574,16 @@ vendor/lib/lib_rsu.so
 vendor/lib/libsmemlog.so
 vendor/lib/libvqzip.so
 
-# Radio
+# Radio-IMS
 -app/datastatusnotification/datastatusnotification.apk
 -app/fastdormancy/fastdormancy.apk
 -app/QtiTelephonyService/QtiTelephonyService.apk
 -app/shutdownlistener/shutdownlistener.apk
+bin/diag_mdlog
+bin/ims_rtp_daemon
+bin/imscmservice
+bin/imsqmidaemon
+bin/imsdatadaemon
 bin/ipacm-diag
 bin/netmgrd
 bin/radish
