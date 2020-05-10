@@ -17,3 +17,26 @@ on boot
     chown system system /sys/class/timed_output/vibrator/wf_s6
     chown system system /sys/class/timed_output/vibrator/wf_s7
     chown system system /sys/class/timed_output/vibrator/wf_update_now
+
+on post-fs-data
+service diag_mdlog /system/vendor/bin/diag_mdlog
+    user root
+    disable
+    oneshot
+
+service stop_diag_mdlog /system/vendor/bin/diag_mdlog -k
+    user root
+    disable
+    oneshot
+
+on property:persist.qxdm.enable=1
+    start diag_mdlog
+
+on property:persist.qxdm.enable=0
+    start stop_diag_mdlog
+
+on property:persist.wlan.cnss_diag=1
+   start cnss_diag
+
+on property:persist.wlan.cnss_diag=0
+   stop cnss_diag
