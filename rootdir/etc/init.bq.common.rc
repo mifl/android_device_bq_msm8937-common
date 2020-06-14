@@ -18,6 +18,23 @@ on boot
     chown system system /sys/class/timed_output/vibrator/wf_s7
     chown system system /sys/class/timed_output/vibrator/wf_update_now
 
+    # Button backlight permissions
+    chown system system /sys/class/leds/button-backlight/brightness
+    chmod 660 /sys/class/leds/button-backlight/brightness
+
+    # RGB lights
+    chmod 660 /sys/class/leds/red/blink
+    chmod 660 /sys/class/leds/green/blink
+    chmod 660 /sys/class/leds/blue/blink
+
+    chmod 660 /sys/class/leds/red/led_time
+    chmod 660 /sys/class/leds/green/led_time
+    chmod 660 /sys/class/leds/blue/led_time
+
+    chmod 660 /sys/class/leds/red/brightness
+    chmod 660 /sys/class/leds/green/brightness
+    chmod 660 /sys/class/leds/blue/brightness
+
 on post-fs-data
 service diag_mdlog /system/vendor/bin/diag_mdlog
     user root
