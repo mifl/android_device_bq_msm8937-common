@@ -43,6 +43,12 @@ vendor/etc/acdbdata/QRD/QRD_Hdmi_cal.acdb
 vendor/etc/acdbdata/QRD/QRD_Headset_cal.acdb
 vendor/etc/acdbdata/QRD/QRD_Speaker_cal.acdb
 
+# Audio settings - Dynamic range compression (DRC) and Surround
+vendor/etc/drc/drc_cfg_5.1.txt
+vendor/etc/drc/drc_cfg_AZ.txt
+vendor/etc/surround_sound_3mic/surround_sound_rec_5.1.cfg
+vendor/etc/surround_sound_3mic/surround_sound_rec_AZ.cfg
+
 # Bluetooth
 vendor/bin/hci_qcomm_init
 vendor/bin/wcnss_filter
