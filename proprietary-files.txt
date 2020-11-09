@@ -333,11 +333,16 @@ framework/com.quicinc.cne.jar
 lib/libvendorconn.so
 -priv-app/CNEService/CNEService.apk
 vendor/bin/cnd
+vendor/lib/com.quicinc.cne.api@1.0.so
+vendor/lib/com.quicinc.cne.constants@1.0.so
+vendor/lib/com.quicinc.cne.server@2.0.so
+vendor/lib/com.quicinc.cne.constants@2.0.so
 vendor/lib/libcne.so
 vendor/lib/libcneapiclient.so
 vendor/lib/libcneqmiutils.so
 vendor/lib/libwqe.so
 vendor/lib/libxml.so
+vendor/lib/vendor.qti.hardware.data.latency@1.0_vendor.so
 
 # DPM
 bin/dpmd
@@ -564,9 +569,20 @@ vendor/lib/libperipheral_client.so
 # Postprocessing
 etc/permissions/com.qti.snapdragon.sdk.display.xml
 framework/com.qti.snapdragon.sdk.display.jar
+lib/vendor.display.color@1.0.so
+lib/vendor.display.color@1.1.so
+lib/vendor.display.config@1.0.so
+lib/vendor.display.config@1.1.so
+lib/vendor.display.config@1.2.so
+lib/vendor.display.postproc@1.0.so
 -vendor/app/colorservice/colorservice.apk
+vendor/bin/hw/vendor.display.color@1.0-service
 #vendor/bin/mm-pp-dpps
+vendor/etc/init/vendor.display.color@1.0-service.rc
 vendor/lib/libdisp-aba.so
+vendor/lib/vendor.display.color@1.0_vendor.so
+vendor/lib/vendor.display.color@1.1_vendor.so
+vendor/lib/vendor.display.postproc@1.0_vendor.so
 
 # Power-off alarm
 etc/permissions/vendor-qti-hardware-alarm.xml
@@ -633,6 +649,7 @@ vendor/lib/libconfigdb.so
 vendor/lib/liblqe.so
 vendor/lib/libmdmdetect.so
 vendor/lib/libnetmgr.so
+vendor/lib/liboemaids_vendor.so
 vendor/lib/libril-qc-ltedirectdisc.so
 vendor/lib/libril-qc-qmi-1.so
 vendor/lib/libril-qc-radioconfig.so
@@ -640,6 +657,16 @@ vendor/lib/libril-qcril-hook-oem.so
 vendor/lib/librilqmiservices.so
 vendor/lib/libsettings.so
 vendor/lib/libsystem_health_mon.so
+vendor/lib/vendor.qti.hardware.radio.am@1.0_vendor.so
+vendor/lib/vendor.qti.hardware.radio.atcmdfwd@1.0_vendor.so
+vendor/lib/vendor.qti.hardware.radio.ims@1.0_vendor.so
+vendor/lib/vendor.qti.hardware.radio.lpa@1.0_vendor.so
+vendor/lib/vendor.qti.hardware.radio.qcrilhook@1.0_vendor.so
+vendor/lib/vendor.qti.hardware.radio.qtiradio@1.0_vendor.so
+vendor/lib/vendor.qti.hardware.radio.uim@1.0_vendor.so
+vendor/lib/vendor.qti.hardware.radio.uim@1.1_vendor.so
+vendor/lib/vendor.qti.hardware.radio.uim_remote_client@1.0_vendor.so
+vendor/lib/vendor.qti.hardware.radio.uim_remote_server@1.0_vendor.so
 vendor/radio/qcril_database/qcril.db
 
 # SCVE
