@@ -624,6 +624,15 @@ vendor/lib/libquipc_os_api.so
 vendor/lib/libsmemlog.so
 vendor/lib/libvqzip.so
 
+# QTEE Connector
+lib/libQTEEConnector_system.so
+lib/vendor.qti.hardware.qteeconnector@1.0.so
+vendor/bin/hw/vendor.qti.hardware.qteeconnector@1.0-service
+vendor/etc/init/vendor.qti.hardware.qteeconnector@1.0-service.rc
+vendor/lib/libQTEEConnector_vendor.so
+vendor/lib/vendor.qti.hardware.qteeconnector@1.0_vendor.so
+vendor/lib/hw/vendor.qti.hardware.qteeconnector@1.0-impl.so
+
 # Radio-IMS
 -app/datastatusnotification/datastatusnotification.apk
 #-app/fastdormancy/fastdormancy.apk
