@@ -538,14 +538,23 @@ vendor/lib/libwms.so
 #vendor/lib/libQtiTether.so
 
 # Perf
+lib/libqti-perfd-client_system.so
 lib/libqti_performance.so
+lib/vendor.qti.hardware.perf@1.0.so
 #vendor/bin/iop
 vendor/bin/msm_irqbalance
 #vendor/bin/perfd
+vendor/bin/hw/vendor.qti.hardware.perf@1.0-service
+vendor/etc/init/vendor.qti.hardware.perf@1.0-service.rc
 vendor/etc/perf/perf-profile0.conf
 vendor/etc/perf/perf-profile1.conf
+vendor/etc/perf/perfboostsconfig.xml
+vendor/lib/libfeedbackhandler.so
+vendor/lib/libperfgluelayer.so
 vendor/lib/libqti-iopd-client.so
 vendor/lib/libqti-perfd-client.so
+vendor/lib/libqti-perfd.so
+vendor/lib/vendor.qti.hardware.perf@1.0_vendor.so
 
 # Peripheral manager
 vendor/bin/pm-proxy
