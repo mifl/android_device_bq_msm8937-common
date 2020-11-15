@@ -555,10 +555,13 @@ vendor/lib/libwms.so
 # Perf
 lib/libqti-perfd-client_system.so
 lib/libqti_performance.so
+lib/vendor.qti.hardware.iop@1.0.so
+lib/vendor.qti.hardware.iop@2.0.so
 lib/vendor.qti.hardware.perf@1.0.so
 #vendor/bin/iop
 vendor/bin/msm_irqbalance
 #vendor/bin/perfd
+vendor/lib/hw/vendor.qti.hardware.iop@1.0-impl.so
 vendor/bin/hw/vendor.qti.hardware.perf@1.0-service
 vendor/etc/init/vendor.qti.hardware.perf@1.0-service.rc
 vendor/etc/perf/perf-profile0.conf
@@ -569,6 +572,8 @@ vendor/lib/libperfgluelayer.so
 vendor/lib/libqti-iopd-client.so
 vendor/lib/libqti-perfd-client.so
 vendor/lib/libqti-perfd.so
+vendor/lib/vendor.qti.hardware.iop@1.0_vendor.so
+vendor/lib/vendor.qti.hardware.iop@2.0_vendor.so
 vendor/lib/vendor.qti.hardware.perf@1.0_vendor.so
 
 # Peripheral manager
